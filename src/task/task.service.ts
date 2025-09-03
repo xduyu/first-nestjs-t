@@ -27,18 +27,19 @@ export class TaskService {
     return this.prisma.task.create({
       data: {
         title: dto.name,
+        description: dto.description,
         isDone: false,
       },
     });
 
-    this.tasks.push({
-      id: this.tasks.length + 1,
-      title: dto.name,
-      description: dto.description,
-      isDone: false,
-    });
+    // this.tasks.push({
+    //   id: this.tasks.length + 1,
+    //   title: dto.name,
+    //   description: dto.description,
+    //   isDone: false,
+    // });
 
-    return this.tasks;
+    // return this.tasks;
   }
   updateTask(id: string) {
     const task = this.prisma.task.update({
